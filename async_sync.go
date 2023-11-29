@@ -6,7 +6,8 @@ import (
 )
 
 func asyncFnc() {
-	// run parallel
+	// run parallel(go create individual thread)
+
 	go func() {
 		time.Sleep(time.Second * 3)
 		fmt.Println("Hi... async")

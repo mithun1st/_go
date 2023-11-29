@@ -18,6 +18,7 @@ func main() {
 		count--
 	}
 
+	//infinity break
 	count = 10
 	for {
 		fmt.Println("bla bla ", count)
@@ -27,6 +28,7 @@ func main() {
 		}
 	}
 
+	//continue
 	for count = 1; count <= 15; count++ {
 		if count%2 == 0 {
 			continue
@@ -34,4 +36,19 @@ func main() {
 		fmt.Println(count)
 	}
 
+	//range list
+	var list []string = []string{"aa", "bb", "cc"}
+	for i, e := range list {
+		fmt.Println(i, " ", e)
+	}
+
+	//range map
+	var mp map[string]int = map[string]int{
+		"a": 1,
+		"b": 2,
+		"c": 3,
+	}
+	for i, e := range mp {
+		fmt.Println(i, " ", e)
+	}
 }

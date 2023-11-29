@@ -4,36 +4,56 @@ import (
 	"fmt"
 )
 
+// struct model
+type Employee struct {
+	eName  string
+	salary float64
+	bonus  float32
+}
+type Student struct {
+	sName  string
+	roll   int
+	result float32
+}
+
+// function
+func (e Employee) getEmpName() string {
+	return e.eName
+}
+func (e Employee) getEmpTotSal() float64 {
+	return e.salary + float64(e.bonus)
+}
+
+func (s Student) getStuName() string {
+	return s.sName
+}
+
+// interface
 type employeFnc interface {
-	getName() string
-	getSalary(bonus int) float64
-}
-
-type employee struct {
-	name       string
-	salary     float64
-	workingDay int
-}
-
-func (e employee) getName() string {
-	return e.name
-}
-
-func (e employee) getSalary(b int) float64 {
-	return (e.salary * float64(e.workingDay)) + float64(b)
+	getEmpName()
+	getStuName()
 }
 
 func main() {
 
-	per1 := employee{
-		name:       "Mr x",
-		salary:     2.01,
-		workingDay: 12,
+	var emp Employee = Employee{
+		eName:  "Mr X",
+		salary: 12000.00,
+		bonus:  200,
+	}
+	var stu Student = Student{
+		sName:  "Alice",
+		roll:   12,
+		result: 4.21,
 	}
 
-	fmt.Println(per1.name)
+	//emp
+	fmt.Println(emp)
+	fmt.Println(emp.getEmpName())
+	fmt.Println(emp.getEmpTotSal())
 
-	fmt.Println(employeFnc.getName(per1))
-	fmt.Println((employeFnc.getSalary(per1, 5)))
+	//stu
+	fmt.Println(stu)
+	fmt.Println(stu.getStuName())
 
 }
